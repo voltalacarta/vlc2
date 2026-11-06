@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% from "macro.html" import scheda_breve %}
+{% block titolo %}Libri · Volta la carta edizioni{% endblock %}
+{% block descrizione %}Il catalogo di Volta la carta: {{ dati.libri|length }} libri di pedagogia, scienze dell'educazione, manuali universitari e storia locale. Si ordinano per email.{% endblock %}
+{% block contenuto %}
+<div class="pagina pagina--larga">
+  <p class="occhiello">Casa editrice</p>
+  <h1>I libri</h1>
+  <p class="sezione__intro">Per avere un libro ci scriva: le rispondiamo con il totale, i tempi e come pagare. Può ritirarlo in negozio a Ferrara o riceverlo a casa. <a class="collegamento" href="come-ordinare.html">Come ordinare</a></p>
+  <form class="filtri" role="search" onsubmit="return false">
+    <label>Cerca
+      <input type="search" id="cerca" placeholder="Titolo, autore o ISBN" autocomplete="off">
+    </label>
+    <label>Collana
+      <select id="collana">
+        <option value="">Tutte le collane</option>
+        {% for c in dati.collane %}<option value="{{ c.slug }}">{{ c.nome }} ({{ c.libri|length }})</option>{% endfor %}
+      </select>
+    </label>
+    <p class="filtri__conto" id="conto" aria-live="polite">{{ dati.libri|length }} libri</p>
+  </form>
+  {% for c in dati.collane %}
+  <div class="descrizione-collana" data-per="{{ c.slug }}" hidden>
+    <p class="avviso"><strong>{{ c.nome }}</strong>{% if c.direzione %}, direzione {{ c.direzione }}{% endif %}. {{ c.descrizione }}</p>
+  </div>
+  {% endfor %}
+  <ul class="libri" id="elenco">
+  {% for b in dati.libri %}{{ scheda_breve(b, radice) }}{% endfor %}
+  </ul>
+  <p id="vuoto" hidden>Nessun libro trovato. Provi con un'altra parola, oppure ci scriva: {{ rivela("mail") }}.</p>
+</div>
+{% endblock %}
+{% block script %}
+<script>
+(function () {
+  var cerca = document.getElementById("cerca"), collana = document.getElementById("collana");
+  var libri = document.querySelectorAll("#elenco .libro");
+  var c0 = new URLSearchParams(location.search).get("collana");
+  if (c0) collana.value = c0;
+  function filtra() {
+    var q = cerca.value.trim().toLowerCase(), c = collana.value, n = 0;
+    libri.forEach(function (li) {
+      var ok = (!c || li.dataset.collana === c) && (!q || li.dataset.testo.indexOf(q) >= 0);
+      li.hidden = !ok; if (ok) n++;
+    });
+    document.querySelectorAll(".descrizione-collana").forEach(function (d) { d.hidden = d.dataset.per !== c; });
+    document.getElementById("conto").textContent = n === 1 ? "1 libro" : n + " libri";
+    document.getElementById("vuoto").hidden = n > 0;
+  }
+  cerca.addEventListener("input", filtra);
+  collana.addEventListener("change", function () {
+    var u = new URL(location.href);
+    if (collana.value) u.searchParams.set("collana", collana.value); else u.searchParams.delete("collana");
+    history.replaceState(null, "", u);
+    filtra();
+  });
+  filtra();
+})();
+</script>
+{% endblock %}

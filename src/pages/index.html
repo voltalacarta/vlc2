@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% from "macro.html" import scheda_breve %}
+{% block titolo %}Volta la carta · casa editrice e legatoria a Ferrara{% endblock %}
+{% block descrizione %}Casa editrice universitaria, legatoria artigiana e negozio in via Voltapaletto a Ferrara, dal {{ dati.bottega.dal }}. {{ dati.libri|length }} libri in {{ dati.collane|length }} collane.{% endblock %}
+{% block contenuto %}
+<section class="apertura">
+  <p class="occhiello">Ferrara, via Voltapaletto 25 · dal {{ dati.bottega.dal }}</p>
+  <h1>Libri, rilegature e carta fatti a mano a Ferrara</h1>
+  <p class="apertura__sotto">Pubblichiamo libri di ricerca e manuali universitari, rileghiamo tesi e volumi su misura e, nel negozio in centro, vendiamo carta e oggetti di Ferrara.</p>
+  <div class="azioni">
+    <a class="bottone" href="libri.html">Sfogli i libri</a>
+    <a class="bottone bottone--chiaro" href="pubblica.html">Pubblichi con noi</a>
+  </div>
+  <ul class="fatti">
+    <li>{{ dati.libri|length }} libri con ISBN</li>
+    <li>{{ dati.collane|length }} collane</li>
+    <li>Legatoria dal {{ dati.bottega.dal }}</li>
+  </ul>
+</section>
+
+<section class="sezione">
+  <h2>Tre attività, una bottega</h2>
+  <div class="aree">
+    <div class="area">
+      <h3>Casa editrice</h3>
+      <p>Pedagogia, scienze dell'educazione e manuali universitari, con comitati scientifici e una rete di autori in Italia, Spagna e America Latina.</p>
+      <a class="collegamento area__link" href="libri.html">Il catalogo</a>
+    </div>
+    <div class="area">
+      <h3>Legatoria</h3>
+      <p>Tesi di laurea, libri firma, volumi di pregio e album, rilegati a mano nel laboratorio di via Voltapaletto.</p>
+      <a class="collegamento area__link" href="legatoria.html">Cosa rileghiamo</a>
+    </div>
+    <div class="area">
+      <h3>Negozio</h3>
+      <p>Cartoline, magneti, acquerelli di Ferrara, cancelleria e lampade rivestite. Si comprano in negozio o si ordinano per email.</p>
+      <a class="collegamento area__link" href="negozio.html">Il negozio</a>
+    </div>
+  </div>
+</section>
+
+<section class="sezione">
+  <h2>Ultime uscite</h2>
+  <ul class="libri">
+  {% for b in dati.libri[:8] %}{{ scheda_breve(b, radice) }}{% endfor %}
+  </ul>
+  <p style="margin-top:1.5rem"><a class="collegamento" href="libri.html">Tutti i {{ dati.libri|length }} libri</a></p>
+</section>
+
+<section class="sezione">
+  <h2>Le collane</h2>
+  <ul class="collane">
+  {% for c in dati.collane %}
+    <li style="--h: {{ c.tinta }}"><a class="collegamento" href="libri.html?collana={{ c.slug }}">{{ c.nome }}</a>{% if c.direzione %}<p>Direzione: {{ c.direzione }} · {{ c.libri|length }} libri</p>{% else %}<p>{{ c.libri|length }} libri</p>{% endif %}</li>
+  {% endfor %}
+  </ul>
+</section>
+{% endblock %}

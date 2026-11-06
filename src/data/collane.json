@@ -1,0 +1,62 @@
+[
+ {
+  "slug": "terre-di-frontiera",
+  "nome": "Terre di frontiera",
+  "direzione": "Anita Gramigna",
+  "descrizione": "Libri come «spazi di esplorazione, ricerca e incontro con la differenza»: intercultura, popoli indigeni dell'America Latina e prima infanzia. È la collana più numerosa e la più internazionale."
+ },
+ {
+  "slug": "stampa-universitaria-estense",
+  "nome": "Stampa universitaria estense",
+  "direzione": "Comitati scientifici",
+  "descrizione": "La prima collana della casa editrice, nata in ambito universitario per «favorire la circolazione delle idee» e pubblicare i lavori di chi «contribuisce a edificare l'ateneo estense dall'interno». Le proposte sono valutate da comitati scientifici; la collana è aperta anche a dottorandi e ricercatori."
+ },
+ {
+  "slug": "verita-provvisorie",
+  "nome": "Verità provvisorie",
+  "direzione": "Anita Gramigna",
+  "descrizione": "Il nome viene da un aforisma di Nietzsche. La collana si oppone alle «certezze di una scienza assoluta e indubitabile» e segue scenari aperti, rifiutando sia il nichilismo sia il relativismo. Si occupa di epistemologia e teoria dell'educazione."
+ },
+ {
+  "slug": "le-ragioni-del-metodo",
+  "nome": "Le ragioni del metodo",
+  "direzione": "Giorgio Poletti",
+  "descrizione": "Il nome viene da Leonardo da Vinci: partire dall'esperienza e poi dimostrarne le ragioni. Ricerca educativa rigorosa nel metodo, che spiega le ragioni delle proprie scelte. Direttore, autori e comitato non ricevono compensi per le pubblicazioni."
+ },
+ {
+  "slug": "il-logos-narrativo-delleducazione",
+  "nome": "Il logos narrativo dell'educazione",
+  "direzione": "Sara Bornatici e Anita Gramigna",
+  "descrizione": "Il linguaggio letterario usa simboli in forma di immagini e coinvolge chi racconta e chi ascolta. Per la collana l'educazione è «un dialogo profondo tra voci narranti». Tratta pedagogia narrativa e letteratura per l'infanzia."
+ },
+ {
+  "slug": "maestri-e-allievi",
+  "nome": "Maestri e Allievi",
+  "direzione": "Paola Bastianoni",
+  "descrizione": "Per studiosi ed educatori: come maestri e allievi, nel passato e nel presente, hanno affrontato questioni sociali cruciali, dalla relazione educativa alla giustizia minorile. È la collana più recente, nata nel 2025."
+ },
+ {
+  "slug": "tecnologie-per-la-conoscenza",
+  "nome": "Tecnologie per la conoscenza",
+  "direzione": "Giovanni Ganino",
+  "descrizione": "La tecnologia come costrutto teorico e come artefatto, per sostenere e migliorare la costruzione della conoscenza. Comprende il Manuale di tecnologie educative, adottato nei corsi e giunto alla seconda edizione nel 2025."
+ },
+ {
+  "slug": "pratiche-delleducazione",
+  "nome": "Pratiche dell'educazione",
+  "direzione": "Silvia Zanazzi (Unife)",
+  "descrizione": "La collana unisce le esperienze dei professionisti dell'educazione alla riflessione su metodi e pratiche, per una sintesi di sapere, saper fare e saper essere. Motto: «Ogni esperienza è una forza propulsiva» (J. Dewey, 1938)."
+ },
+ {
+  "slug": "scintille",
+  "nome": "Scintille",
+  "direzione": "Maura Franchi e Nicola Alessandrini",
+  "descrizione": "Parte da Gramsci, per cui la cultura vale se spinge all'azione, e raccoglie riflessioni nate dalle attività dell'Istituto Gramsci di Ferrara. Motto: «La verità è sempre rivoluzionaria». Volumi brevi, a 5 €."
+ },
+ {
+  "slug": "fuori-collana",
+  "nome": "Fuori collana",
+  "direzione": "",
+  "descrizione": "La varia: opere collettive di associazioni culturali, storia locale, folklore e tradizioni, saggistica, manuali per concorsi, narrativa e poesia."
+ }
+]

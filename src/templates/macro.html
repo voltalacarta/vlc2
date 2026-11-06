@@ -1,0 +1,21 @@
+{% macro copertina(b, href="") %}
+{% set t = b.collana.tinta if b.collana else 30 %}
+<a class="libro__copertina" style="--h: {{ t }}" href="{{ href }}" aria-hidden="true" tabindex="-1">
+  <span>{{ b.titolo }}</span>
+  <small>{{ b.collana.nome if b.collana else "Volta la carta" }}</small>
+</a>
+{% endmacro %}
+
+{% macro scheda_breve(b, radice) %}
+<li class="libro" data-collana="{{ b.collana.slug if b.collana else '' }}" data-testo="{{ (b.titolo ~ ' ' ~ b.autori ~ ' ' ~ b.isbn)|lower }}">
+  {{ copertina(b, radice ~ "libri/" ~ b.isbn ~ ".html") }}
+  <p class="libro__titolo"><a href="{{ radice }}libri/{{ b.isbn }}.html">{{ b.titolo }}</a></p>
+  {% if b.autori %}<p class="libro__autori">{{ b.autori }}</p>{% endif %}
+  <p class="libro__meta">{% if b.anno %}{{ b.anno }} · {% endif %}{% if b.prezzo %}<span class="libro__prezzo">{{ b.prezzo|euro }}</span>{% endif %}</p>
+</li>
+{% endmacro %}
+
+{% macro chiedi(b, classe="bottone") %}
+{{ rivela("mail", "Chieda per email", "Richiesta libro: " ~ b.titolo ~ " (ISBN " ~ b.isbn ~ ")",
+  "Buongiorno,\nvorrei ricevere il libro «" ~ b.titolo ~ "» (ISBN " ~ b.isbn ~ ").\nCopie: 1\nRitiro in negozio oppure spedizione a (nome, indirizzo, CAP, città, Paese): \n\nGrazie", classe) }}
+{% endmacro %}

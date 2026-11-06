@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% from "macro.html" import copertina, chiedi %}
+{% set b = libro %}
+{% block titolo %}{{ b.titolo }}{% if b.autori %} · {{ b.autori }}{% endif %} · Volta la carta{% endblock %}
+{% block descrizione %}{{ b.titolo }}{% if b.autori %}, di {{ b.autori }}{% endif %}{% if b.collana %}, collana {{ b.collana.nome }}{% endif %}. ISBN {{ b.isbn }}. Volta la carta edizioni, Ferrara.{% endblock %}
+{% block head %}
+<script type="application/ld+json">{{ {"@context": "https://schema.org", "@type": "Book", "name": b.titolo, "isbn": b.isbn, "author": b.autori, "datePublished": b.anno, "publisher": {"@type": "Organization", "name": "Volta la carta"}, "offers": ({"@type": "Offer", "price": b.prezzo, "priceCurrency": "EUR"} if b.prezzo else none)}|tojson }}</script>
+{% endblock %}
+{% block contenuto %}
+<div class="pagina pagina--larga">
+  <p class="occhiello"><a href="../libri.html">Libri</a>{% if b.collana %} · <a href="../libri.html?collana={{ b.collana.slug }}">{{ b.collana.nome }}</a>{% endif %}</p>
+  <div class="scheda">
+    {{ copertina(b) }}
+    <div>
+      <h1>{{ b.titolo }}</h1>
+      {% if b.autori %}<p class="sezione__intro">{{ b.autori }}</p>{% endif %}
+      <dl class="dati">
+        {% if b.collana %}<dt>Collana</dt><dd>{{ b.collana.nome }}{% if b.collana.direzione %}, direzione {{ b.collana.direzione }}{% endif %}</dd>{% endif %}
+        {% if b.anno %}<dt>Anno</dt><dd>{{ b.anno }}</dd>{% endif %}
+        <dt>ISBN</dt><dd>{{ b.isbn }}</dd>
+        {% if b.prezzo %}<dt>Prezzo</dt><dd><strong>{{ b.prezzo|euro }}</strong></dd>{% endif %}
+      </dl>
+      {% if b.gratuito %}<p>Questo libro è disponibile anche in PDF gratuito: lo chieda per email.</p>{% endif %}
+      <div>{{ chiedi(b) }}</div>
+      <p class="libro__meta" style="margin-top:1rem">Le rispondiamo con il totale, i tempi e come pagare. Ritiro gratuito in negozio a Ferrara, oppure spedizione. <a href="../come-ordinare.html">Come ordinare</a></p>
+      {% if b.collana %}<p class="avviso">{{ b.collana.descrizione }}</p>{% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}

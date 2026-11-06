@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block titolo %}Negozio in via Voltapaletto · cartoline, magneti e acquerelli di Ferrara{% endblock %}
+{% block descrizione %}Cartoline, magneti, acquerelli di Ferrara, cancelleria e lampade rivestite: in negozio in via Voltapaletto 25 o su ordinazione per email, con spedizione in Italia e all'estero.{% endblock %}
+{% block contenuto %}
+<div class="pagina pagina--larga">
+  <p class="occhiello">Via Voltapaletto 25, Ferrara</p>
+  <h1>Il negozio</h1>
+  <p class="sezione__intro">Oggetti di carta e ricordi di Ferrara, molti rivestiti e rifiniti in bottega. Li trova in negozio, oppure li ordina per email e li spediamo.</p>
+  <ul class="prodotti">
+  {% for p in dati.negozio %}<li><h3>{{ p.nome }}</h3><p>{{ p.testo }}</p></li>{% endfor %}
+  </ul>
+
+  <h2 style="margin-top:2.5rem">Su misura</h2>
+  <p class="sezione__intro">Molti oggetti si possono personalizzare con un nome, una data, un logo o una sua foto: per matrimoni, eventi, associazioni e regali.</p>
+
+  <div class="avviso">
+    <p><strong>Ordinare da casa.</strong> Ci scriva cosa le interessa: le rispondiamo con disponibilità, prezzo, spedizione e come pagare.</p>
+    <p>{{ rivela("mail", "Scriva al negozio", "Richiesta dal negozio", "Buongiorno,\nmi interessano:\n\n\nSpedizione a (nome, indirizzo, CAP, città, Paese):\n\nGrazie", "bottone") }}</p>
+  </div>
+  <p><strong>Spedizioni fuori dall'Unione europea</strong> (per esempio Svizzera, Regno Unito, Stati Uniti): dazi, IVA di importazione e spese di sdoganamento sono a carico di chi riceve e si pagano al corriere o alla dogana alla consegna. Non sono compresi nel nostro prezzo. <a class="collegamento" href="come-ordinare.html">Come ordinare</a></p>
+</div>
+{% endblock %}

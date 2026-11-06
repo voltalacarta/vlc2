@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block titolo %}Chi siamo · Volta la carta, Ferrara{% endblock %}
+{% block descrizione %}Legatoria in via Voltapaletto a Ferrara dal {{ dati.bottega.dal }}, casa editrice dal 2013.{% endblock %}
+{% block contenuto %}
+<div class="pagina">
+  <h1>Chi siamo</h1>
+  <p class="sezione__intro">Volta la carta è una legatoria nata a Ferrara alla fine degli anni Novanta, nel {{ dati.bottega.dal }}, e diventata anche casa editrice.</p>
+  <p>Dal 2004 circa la bottega è in via Voltapaletto 25, nel centro storico, a pochi passi dall'università. Qui si rilegano le tesi di laurea di generazioni di studenti, insieme a libri firma, volumi di pregio e lavori su misura.</p>
+  <p>Nel 2013 sono usciti i primi libri. Oggi il catalogo conta {{ dati.libri|length }} titoli in {{ dati.collane|length }} collane, soprattutto di pedagogia, scienze dell'educazione e manualistica universitaria, con autori in Italia, Spagna e America Latina. Nel 2022 <em>Teoria e metodologia della ricerca educativa</em> di Giorgio Poletti ha vinto il premio della Società italiana di pedagogia.</p>
+  <p>Curiamo, stampiamo e rileghiamo nello stesso laboratorio: chi pubblica con noi segue il libro dalla bozza alla copia finita.</p>
+</div>
+{% endblock %}

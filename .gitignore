@@ -1,0 +1,22 @@
+# Segreti: non devono mai finire nel repository
+.env
+.env.*
+*.key
+*.pem
+secrets.*
+
+# Sistema operativo ed editor
+.DS_Store
+Thumbs.db
+.obsidian/workspace*.json
+
+# Dipendenze
+node_modules/
+
+# Python
+__pycache__/
+*.pyc
+
+# Sito generato e font scaricati in CI
+dist/
+src/assets/fonts/*.woff2

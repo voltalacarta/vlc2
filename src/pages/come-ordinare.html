@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block titolo %}Come ordinare · Volta la carta{% endblock %}
+{% block descrizione %}Libri e oggetti del negozio si ordinano per email: rispondiamo con totale, tempi e modalità di pagamento. Ritiro gratuito a Ferrara o spedizione.{% endblock %}
+{% block contenuto %}
+<div class="pagina">
+  <h1>Come ordinare</h1>
+  <p class="sezione__intro">Libri e oggetti del negozio si ordinano per email. Non c'è un carrello: ci scrive, le rispondiamo noi.</p>
+  <ol class="passi">
+    <li><strong>Ci scrive</strong> cosa desidera, quante copie e se vuole ritirare in negozio o ricevere a casa. Dalla scheda di ogni libro l'email è già compilata.</li>
+    <li><strong>Le rispondiamo</strong> con disponibilità, totale, spedizione e modalità di pagamento.</li>
+    <li><strong>Conferma e paga</strong>; prepariamo l'ordine.</li>
+    <li><strong>Ritira o riceve</strong>: ritiro gratuito in via Voltapaletto 25, oppure spedizione.</li>
+  </ol>
+
+  <h2>Spedizioni</h2>
+  <p>In Italia spediamo con corriere o posta; il costo è indicato nella nostra risposta, prima di pagare.</p>
+  <p><strong>Fuori dall'Unione europea</strong> il pacco passa la dogana del Paese di arrivo: dazi, IVA di importazione e spese di sdoganamento sono a carico di chi riceve e si pagano al corriere o alla dogana. Non sono compresi nel nostro prezzo e non dipendono da noi.</p>
+
+  <h2>Librerie e biblioteche</h2>
+  <p>Se è una libreria, una biblioteca o un ente, ci scriva per le condizioni: {{ rivela("mail") }}.</p>
+
+  <h2>Tesi di laurea</h2>
+  <p>Le tesi hanno un sito tutto loro, con prezzo e consegna immediati: <a class="collegamento" href="{{ dati.bottega.tesi }}">rilegaretesi.it</a>.</p>
+</div>
+{% endblock %}

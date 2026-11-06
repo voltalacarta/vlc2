@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block titolo %}{% endblock %}</title>
+<meta name="description" content="{% block descrizione %}{% endblock %}">
+{% if staging %}<meta name="robots" content="noindex, nofollow">{% endif %}
+<link rel="icon" href="{{ radice }}assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="{{ radice }}assets/css/site.css">
+{% block head %}{% endblock %}
+</head>
+<body>
+<a class="salta" href="#contenuto">Vai al contenuto</a>
+{% if staging %}<div class="staging"><p>Versione di prova del nuovo voltalacarta.it. Il sito attuale non è cambiato.</p></div>{% endif %}
+<header class="testata">
+  <div class="testata__in">
+    <a class="marchio" href="{{ radice }}index.html">
+      <span class="marchio__nome">Volta la carta</span>
+      <span class="marchio__firma">casa editrice e legatoria · Ferrara</span>
+    </a>
+    <nav class="menu" aria-label="Principale">
+      <a href="{{ radice }}libri.html"{% if pagina in ('libri', 'libro') %} aria-current="page"{% endif %}>Libri</a>
+      <a href="{{ radice }}pubblica.html"{% if pagina == 'pubblica' %} aria-current="page"{% endif %}>Pubblica con noi</a>
+      <a href="{{ radice }}legatoria.html"{% if pagina == 'legatoria' %} aria-current="page"{% endif %}>Legatoria</a>
+      <a href="{{ radice }}negozio.html"{% if pagina == 'negozio' %} aria-current="page"{% endif %}>Negozio</a>
+      <a href="{{ radice }}contatti.html"{% if pagina == 'contatti' %} aria-current="page"{% endif %}>Contatti</a>
+    </nav>
+  </div>
+</header>
+
+<main id="contenuto">
+{% block contenuto %}{% endblock %}
+</main>
+
+<footer class="piede">
+  <div class="piede__in">
+    <div>
+      <p class="piede__marchio">Volta la carta</p>
+      <p>{{ dati.bottega.ragione_sociale }}<br>{{ dati.bottega.indirizzo }}, {{ dati.bottega.cap_citta }}<br>P.IVA {{ dati.bottega.piva }}</p>
+    </div>
+    <div>
+      <p>Telefono: {{ rivela("tel") }}<br>Email: {{ rivela("mail") }}<br>Orari: {{ dati.bottega.orari }}</p>
+      <p>Tesi di laurea: <a href="{{ dati.bottega.tesi }}">rilegaretesi.it</a></p>
+    </div>
+    <nav aria-label="Informazioni">
+      <a href="{{ radice }}come-ordinare.html">Come ordinare</a>
+      <a href="{{ radice }}chi-siamo.html">Chi siamo</a>
+      <a href="{{ radice }}contatti.html">Contatti</a>
+    </nav>
+  </div>
+</footer>
+<script src="{{ radice }}assets/js/contatti.js" defer></script>
+{% block script %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,23 @@
+---
+titolo: Decisioni del progetto
+stato: attivo
+creato: 2026-11-06
+aggiornato: 2026-11-06
+tag: [decisioni, indice]
+---
+
+# Decisioni
+
+Una decisione = un file numerato, creato con `python3 strumenti/nuova-decisione.py "Titolo"`. Il registro qui sotto si aggiorna da solo.
+
+<!-- indice:inizio decisioni -->
+<!-- Generato da strumenti/indici.py: le modifiche qui dentro vengono sovrascritte. -->
+
+| N. | Decisione | Stato | Data |
+| --- | --- | --- | --- |
+| [0001](0001-nuovo-sito-separato-stessa-tecnica-di-rt2-staging-su-github.md) | Nuovo sito separato, stessa tecnica di rt2, staging su GitHub Pages | accettato | 2026-11-06 |
+| [0002](0002-libri-e-negozio-senza-carrello-ordini-per-email.md) | Libri e negozio senza carrello: ordini per email | accettato | 2026-11-06 |
+
+<!-- indice:fine -->
+
+Le decisioni accettate non si riscrivono: se si cambia idea se ne crea una nuova con `--sostituisce`.

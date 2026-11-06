@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block titolo %}Legatoria artigiana a Ferrara · Volta la carta{% endblock %}
+{% block descrizione %}Tesi di laurea, libri firma, volumi di pregio, album e rilegature in materiali speciali, fatti a mano in via Voltapaletto a Ferrara dal {{ dati.bottega.dal }}.{% endblock %}
+{% block contenuto %}
+<div class="pagina">
+  <p class="occhiello">Legatoria dal {{ dati.bottega.dal }}</p>
+  <h1>Rilegature fatte a mano</h1>
+  <p class="sezione__intro">Nel laboratorio di via Voltapaletto rileghiamo tesi, libri e volumi su misura, uno per uno.</p>
+
+  <h2>Tesi di laurea</h2>
+  <p>Le tesi si ordinano su <a class="collegamento" href="{{ dati.bottega.tesi }}">rilegaretesi.it</a>: carica il PDF, sceglie la copertina e vede subito prezzo e data di spedizione. Oppure le porti in negozio.</p>
+
+  <h2>Lavori su misura</h2>
+  <ul>
+    <li><strong>Libri firma</strong> per eventi, cerimonie e istituzioni</li>
+    <li><strong>Messali e volumi di pregio</strong></li>
+    <li><strong>Album fotografici</strong>, anche per comunioni e anniversari</li>
+    <li><strong>Copertine in materiali speciali</strong>: legno, sughero, plexiglass, carbonio, carte con petali e inserti vegetali</li>
+    <li><strong>Rilegature per aziende</strong>: cataloghi, raccolte, documenti</li>
+  </ul>
+
+  <h2>Copisteria</h2>
+  <p>Fotocopie e stampe in bianco e nero e a colori, dispense, scansioni, impaginazione, biglietti da visita.</p>
+
+  <h2>Per enti e pubbliche amministrazioni</h2>
+  <p>Siamo abilitati sul mercato elettronico della pubblica amministrazione (MePA) per libri e pubblicazioni e per servizi di stampa e grafica.</p>
+
+  <div class="avviso">
+    <p>Per un preventivo ci descriva il lavoro: formato, numero di pagine o di copie, materiali, data in cui le serve.</p>
+    <p>{{ rivela("mail", "Chieda un preventivo", "Richiesta di preventivo per una rilegatura", "Buongiorno,\nvorrei un preventivo per:\n\nTipo di lavoro:\nFormato e pagine:\nCopie:\nMateriali o colori:\nData entro cui mi serve:\n\nGrazie", "bottone") }}</p>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block titolo %}Contatti · Volta la carta, via Voltapaletto 25, Ferrara{% endblock %}
+{% block descrizione %}Volta la carta, via Voltapaletto 25, 44121 Ferrara. Orari: {{ dati.bottega.orari }}.{% endblock %}
+{% block contenuto %}
+<div class="pagina">
+  <h1>Contatti</h1>
+  <h2>Negozio e laboratorio</h2>
+  <p>{{ dati.bottega.indirizzo }}, {{ dati.bottega.cap_citta }}<br>Orari: {{ dati.bottega.orari }}</p>
+  <h2>Email</h2>
+  <p>Casa editrice, librerie, negozio e preventivi: {{ rivela("mail") }}</p>
+  <h2>Telefono</h2>
+  <p>{{ rivela("tel") }}, negli orari del negozio.</p>
+  <h2>Tesi di laurea</h2>
+  <p>Per le tesi: <a class="collegamento" href="{{ dati.bottega.tesi }}">rilegaretesi.it</a>.</p>
+</div>
+{% endblock %}

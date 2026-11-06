@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block titolo %}Pubblichi con Volta la carta · per docenti, dottori di ricerca e dipartimenti{% endblock %}
+{% block descrizione %}Dalla tesi di dottorato al libro con ISBN, dalle dispense al manuale adottato, atti di convegno e collane per i dipartimenti. Cura, stampa e rilegatura nello stesso laboratorio a Ferrara.{% endblock %}
+{% block contenuto %}
+<div class="pagina">
+  <p class="occhiello">Per docenti, dottori di ricerca e dipartimenti</p>
+  <h1>Pubblichi con noi</h1>
+  <p class="sezione__intro">Curiamo, stampiamo e rileghiamo nello stesso laboratorio, a Ferrara. Il libro ha il suo ISBN, entra nei cataloghi delle librerie e si ordina anche dal nostro sito.</p>
+
+  <div class="offerte">
+    <div><h3>Dalla tesi di dottorato al libro</h3><p>Revisione editoriale, copertina, ISBN, stampa in poche copie o in tiratura, deposito legale.</p></div>
+    <div><h3>Dalle dispense al manuale adottato</h3><p>Le dispense del corso diventano un libro che gli studenti trovano in negozio e in libreria.</p></div>
+    <div><h3>Atti di convegno e collane</h3><p>Raccolta dei testi, impaginazione uniforme, ISBN e copie pronte per il convegno o la cerimonia.</p></div>
+    <div><h3>Da lezioni e slide a manuale</h3><p>Ci consegna slide e appunti: li ordiniamo in una prima stesura, lei la corregge, noi la curiamo fino al libro.</p></div>
+  </div>
+
+  <h2>Come si lavora</h2>
+  <ol class="passi">
+    <li><strong>Ci scrive</strong> con titolo, indice, una breve presentazione e il numero di pagine previsto.</li>
+    <li><strong>Valutiamo la proposta.</strong> Per le collane la legge il comitato scientifico.</li>
+    <li><strong>Le mandiamo un preventivo</strong> con tempi, numero di copie e condizioni.</li>
+    <li><strong>Curiamo il testo e la copertina</strong> e le mandiamo le bozze da approvare.</li>
+    <li><strong>Stampiamo e rileghiamo</strong>, assegniamo l'ISBN e il libro entra in catalogo.</li>
+  </ol>
+
+  <h2>Le collane</h2>
+  <ul>
+  {% for c in dati.collane %}<li><a href="libri.html?collana={{ c.slug }}">{{ c.nome }}</a>{% if c.direzione %}, direzione {{ c.direzione }}{% endif %}</li>{% endfor %}
+  </ul>
+
+  <div class="avviso">
+    <p><strong>Ci scriva la sua proposta.</strong> Le rispondiamo entro pochi giorni lavorativi.</p>
+    <p>{{ rivela("mail", "Scriva una proposta", "Proposta di pubblicazione", "Buongiorno,\nvorrei proporre una pubblicazione.\n\nTitolo provvisorio:\nTipo (tesi di dottorato, manuale, atti, altro):\nPagine previste:\nCollana di interesse, se c'è:\n\nAllego indice e breve presentazione.\n\nGrazie", "bottone") }}</p>
+  </div>
+</div>
+{% endblock %}
